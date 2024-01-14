@@ -42,3 +42,9 @@ uvicorn service.app:app --host localhost --port 8000
 ```bash
 uvicorn service.app_u2net:app --host localhost --port 8000
 ```
+
+
+### Credit:
+
+https://github.com/xuebinqin/DIS
+
