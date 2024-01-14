@@ -8,7 +8,7 @@ from fastapi import FastAPI, File, Request, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.responses import StreamingResponse
 
-from webapp.u2net import engine_u2net
+from service.u2net import engine_u2net
 
 app = FastAPI()
 

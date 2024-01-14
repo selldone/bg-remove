@@ -35,11 +35,11 @@ pip install -r requirements.txt
 #### ISNET (NEW)
 
 ```bash
-uvicorn webapp.app:app --host localhost --port 8000
+uvicorn service.app:app --host localhost --port 8000
 ```
 
 #### U2NET (OLD)
 
 ```bash
-uvicorn webapp.app_u2net:app --host localhost --port 8000
+uvicorn service.app_u2net:app --host localhost --port 8000
 ```

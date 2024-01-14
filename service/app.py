@@ -7,7 +7,7 @@ from fastapi import FastAPI, File, Request, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.responses import StreamingResponse
 
-from webapp.isnet import engine_isnet
+from service.isnet import engine_isnet
 
 app = FastAPI()
 

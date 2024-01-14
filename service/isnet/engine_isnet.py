@@ -8,8 +8,8 @@ from torch.autograd import Variable
 from torchvision import transforms
 from torchvision.transforms.functional import normalize
 
-from webapp.isnet.data_loader_cache import im_preprocess
-from webapp.isnet import model_isnet
+from service.isnet.data_loader_cache import im_preprocess
+from service.isnet import model_isnet
 
 
 class GOSNormalize(object):
@@ -100,7 +100,7 @@ print(f"Device: {device}")
 
 hypar = {}  # paramters for inferencing
 
-hypar["model_path"] = "./webapp/isnet/model"  ## load trained weights from this path
+hypar["model_path"] = "./service/isnet/model"  ## load trained weights from this path
 hypar["restore_model"] = "isnet-general-use.pth"  ## name of the to-be-loaded weights
 hypar["interm_sup"] = True  ## indicate if activate intermediate feature supervision
 

@@ -2,9 +2,9 @@ import numpy as np
 from PIL import Image
 import torch
 from torchvision import transforms
-from webapp.u2net import utils_u2net, model_u2net
+from service.u2net import utils_u2net, model_u2net
 
-model_path = './webapp/u2net/model/u2net.pth'
+model_path = './service/u2net/model/u2net.pth'
 model_pred = model_u2net.U2NET(3, 1)
 model_pred.load_state_dict(torch.load(model_path, map_location="cpu"))
 model_pred.eval()
