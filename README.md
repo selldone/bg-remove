@@ -5,8 +5,7 @@ goal is to create a readily usable, open-source tool for developers, free of cha
 available in the open-source community and integrates them with a FastAPI framework for efficient and effective
 background removal tasks.
 
-### Demos
-
+![backgroundremove.jpg](_docs%2Fimages%2Fbackgroundremove.jpg)
 ![sample-ai-bg-remove.jpg](_docs%2Fimages%2Fsample-ai-bg-remove.jpg)
 
 ### Endpoint available
