@@ -29,6 +29,11 @@ git clone https://github.com/selldone/bg-remove.git
 pip install -r requirements.txt
 ```
 
+3. Download model
+
+Download model from ([**Google Drive**](https://drive.google.com/file/d/1XHIzgTzY5BQHw140EDIgwIb53K659ENH/view?usp=sharing)) and put the `isnet-general-use.pth` file in the `service/isnet/model` folder
+
+
 4. Start web-application
 
 #### ISNET (NEW)
