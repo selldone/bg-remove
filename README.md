@@ -46,5 +46,5 @@ uvicorn service.app_u2net:app --host localhost --port 8000
 
 ### Credit:
 
-https://github.com/xuebinqin/DIS
+https://xuebinqin.github.io/dis/index.html
 
