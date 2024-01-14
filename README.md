@@ -8,33 +8,33 @@ background removal tasks.
 ![backgroundremove.jpg](_docs%2Fimages%2Fbackgroundremove.jpg)
 ![sample-ai-bg-remove.jpg](_docs%2Fimages%2Fsample-ai-bg-remove.jpg)
 
-### Endpoint available
+## Endpoints
 
 | Endpoint                        | Description                |
 |---------------------------------|----------------------------|
 | http://localhost:8000/remove-bg | Remove background endpoint |
 
-### Install
+## Install
 
-1. Clone this repository
+### 1. Clone this repository
 
 ```bash
 git clone https://github.com/selldone/bg-remove.git
 
 ```
 
-2. Install dependencies
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Download model
+### 3. Download model
 
 Download model from ([**Google Drive**](https://drive.google.com/file/d/1XHIzgTzY5BQHw140EDIgwIb53K659ENH/view?usp=sharing)) and put the `isnet-general-use.pth` file in the `service/isnet/model` folder
 
 
-4. Start web-application
+### 4. Start web-application
 
 #### ISNET (NEW)
 
