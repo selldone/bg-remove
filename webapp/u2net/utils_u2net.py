@@ -1,16 +1,11 @@
 # data loader
 from __future__ import print_function, division
-import glob
+
+import numpy as np
 import torch
 from skimage import io, transform, color
-import numpy as np
-import random
-import math
+from torch.utils.data import Dataset
 
-# import matplotlib.pyplot as plt
-from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms, utils
-from PIL import Image
 
 # ==========================dataset load==========================
 class RescaleT(object):
@@ -98,8 +93,8 @@ class RandomCrop(object):
         top = np.random.randint(0, h - new_h)
         left = np.random.randint(0, w - new_w)
 
-        image = image[top : top + new_h, left : left + new_w]
-        label = label[top : top + new_h, left : left + new_w]
+        image = image[top: top + new_h, left: left + new_w]
+        label = label[top: top + new_h, left: left + new_w]
 
         return {"imidx": imidx, "image": image, "label": label}
 
@@ -174,22 +169,22 @@ class ToTensorLab(object):
 
             # nomalize image to range [0,1]
             tmpImg[:, :, 0] = (tmpImgt[:, :, 0] - np.min(tmpImgt[:, :, 0])) / (
-                np.max(tmpImgt[:, :, 0]) - np.min(tmpImgt[:, :, 0])
+                    np.max(tmpImgt[:, :, 0]) - np.min(tmpImgt[:, :, 0])
             )
             tmpImg[:, :, 1] = (tmpImgt[:, :, 1] - np.min(tmpImgt[:, :, 1])) / (
-                np.max(tmpImgt[:, :, 1]) - np.min(tmpImgt[:, :, 1])
+                    np.max(tmpImgt[:, :, 1]) - np.min(tmpImgt[:, :, 1])
             )
             tmpImg[:, :, 2] = (tmpImgt[:, :, 2] - np.min(tmpImgt[:, :, 2])) / (
-                np.max(tmpImgt[:, :, 2]) - np.min(tmpImgt[:, :, 2])
+                    np.max(tmpImgt[:, :, 2]) - np.min(tmpImgt[:, :, 2])
             )
             tmpImg[:, :, 3] = (tmpImgtl[:, :, 0] - np.min(tmpImgtl[:, :, 0])) / (
-                np.max(tmpImgtl[:, :, 0]) - np.min(tmpImgtl[:, :, 0])
+                    np.max(tmpImgtl[:, :, 0]) - np.min(tmpImgtl[:, :, 0])
             )
             tmpImg[:, :, 4] = (tmpImgtl[:, :, 1] - np.min(tmpImgtl[:, :, 1])) / (
-                np.max(tmpImgtl[:, :, 1]) - np.min(tmpImgtl[:, :, 1])
+                    np.max(tmpImgtl[:, :, 1]) - np.min(tmpImgtl[:, :, 1])
             )
             tmpImg[:, :, 5] = (tmpImgtl[:, :, 2] - np.min(tmpImgtl[:, :, 2])) / (
-                np.max(tmpImgtl[:, :, 2]) - np.min(tmpImgtl[:, :, 2])
+                    np.max(tmpImgtl[:, :, 2]) - np.min(tmpImgtl[:, :, 2])
             )
 
             # tmpImg = tmpImg/(np.max(tmpImg)-np.min(tmpImg))
@@ -228,13 +223,13 @@ class ToTensorLab(object):
             # tmpImg = tmpImg/(np.max(tmpImg)-np.min(tmpImg))
 
             tmpImg[:, :, 0] = (tmpImg[:, :, 0] - np.min(tmpImg[:, :, 0])) / (
-                np.max(tmpImg[:, :, 0]) - np.min(tmpImg[:, :, 0])
+                    np.max(tmpImg[:, :, 0]) - np.min(tmpImg[:, :, 0])
             )
             tmpImg[:, :, 1] = (tmpImg[:, :, 1] - np.min(tmpImg[:, :, 1])) / (
-                np.max(tmpImg[:, :, 1]) - np.min(tmpImg[:, :, 1])
+                    np.max(tmpImg[:, :, 1]) - np.min(tmpImg[:, :, 1])
             )
             tmpImg[:, :, 2] = (tmpImg[:, :, 2] - np.min(tmpImg[:, :, 2])) / (
-                np.max(tmpImg[:, :, 2]) - np.min(tmpImg[:, :, 2])
+                    np.max(tmpImg[:, :, 2]) - np.min(tmpImg[:, :, 2])
             )
 
             tmpImg[:, :, 0] = (tmpImg[:, :, 0] - np.mean(tmpImg[:, :, 0])) / np.std(

@@ -3,11 +3,12 @@ import logging
 import time
 import uuid
 
+from PIL import Image
 from fastapi import FastAPI, File, Request, UploadFile
 from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.responses import StreamingResponse
 
-from webapp.isnet import engine_isnet
+from webapp.u2net import engine_u2net
 
 app = FastAPI()
 
@@ -23,7 +24,8 @@ async def remove_bg(request: Request, file: UploadFile = File(...)):
         in_memory_file = io.BytesIO(file.file.read())
 
         # Load image directly from in-memory buffer
-        img_pil = engine_isnet.remove_bg_mult(in_memory_file)
+        input_image = Image.open(in_memory_file)
+        img_pil = engine_u2net.remove_bg_mult(input_image)
 
         # Create another in-memory buffer to store the processed image
         img_output = io.BytesIO()
@@ -33,8 +35,7 @@ async def remove_bg(request: Request, file: UploadFile = File(...)):
         # End time and calculate processing time
         end_time = time.time()
         processing_time = end_time - start_time
-        headers = {"S-Processing-Time": str(processing_time), "S-Processing-Server": "V1",
-                   "S-Processing-Device": engine_isnet.device}
+        headers = {"S-Processing-Time": str(processing_time), "S-Processing-Server": "V1"}
 
         # Determine the MIME type
         mime_type = "image/png"

@@ -2,10 +2,10 @@ import numpy as np
 from PIL import Image
 import torch
 from torchvision import transforms
-from u2net import utils, model
+from webapp.u2net import utils_u2net, model_u2net
 
-model_path = './ckpt/u2net.pth'
-model_pred = model.U2NET(3, 1)
+model_path = './webapp/u2net/model/u2net.pth'
+model_pred = model_u2net.U2NET(3, 1)
 model_pred.load_state_dict(torch.load(model_path, map_location="cpu"))
 model_pred.eval()
 
@@ -32,7 +32,7 @@ def preprocess(image):
         image = image[:, :, np.newaxis]
         label = label[:, :, np.newaxis]
 
-    transform = transforms.Compose([utils.RescaleT(320), utils.ToTensorLab(flag=0)])
+    transform = transforms.Compose([utils_u2net.RescaleT(320), utils_u2net.ToTensorLab(flag=0)])
     sample = transform({"imidx": np.array([0]), "image": image, "label": label})
 
     return sample
